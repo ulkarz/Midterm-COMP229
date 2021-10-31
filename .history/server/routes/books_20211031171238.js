@@ -63,17 +63,6 @@ router.get('/edit/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let id = req.params.id;
-
-    book.findById(id, (err, bookToEdit) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            //show the edit view
-            res.render('books/details', { title: 'Edit Book', book: bookToEdit })
-        }
-    });
 });
 
 // POST - process the information passed from the details form and update the document
@@ -82,25 +71,6 @@ router.post('/edit/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let id = req.params.id
-
-    let updatedBook = book({
-        "_id": id,
-        "Title": req.body.Title,
-        "Price": req.body.Price,
-        "Author": req.body.Author,
-        "Genre": req.body.Genre
-    });
-
-    book.updateOne({ _id: id }, updatedBook, (err) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            // refresh the book list
-            res.redirect('/books');
-        }
-    });
 
 });
 
@@ -110,17 +80,6 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let id = req.params.id;
-
-    book.remove({ _id: id }, (err) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            // refresh the book list
-            res.redirect('/books');
-        }
-    });
 });
 
 
