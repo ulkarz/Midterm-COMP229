@@ -1,10 +1,3 @@
-/*
-    File name: index.js
-    Name: Ulkar Zakaryayeva
-    Student Number: 301107604
-    Date: October 31, 2021
-*/
-
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -15,10 +8,10 @@ let book = require('../models/books');
 
 /* GET home page. wildcard */
 router.get('/', (req, res, next) => {
-    res.render('content/index', {
-        title: 'Home',
-        books: ''
-    });
+  res.render('content/index', {
+    title: 'Home',
+    books: ''
+   });
 });
 
 module.exports = router;
